@@ -1,103 +1,95 @@
-# 📩 Spam Detection ML System
+# SMS Spam Detection System
 
-## 🚀 Overview
+A production-grade, end-to-end machine learning application designed to classify SMS messages as spam or ham (legitimate). This project utilizes a **decoupled architecture**, separating the machine learning inference engine from the user interface to ensure high performance, scalability, and clean separation of concerns.
 
-This is an end-to-end Machine Learning project that classifies messages as **Spam** or **Ham (Not Spam)**.
-
-It includes:
-
-* ML model (TF-IDF + Logistic Regression)
-* FastAPI backend (API for predictions)
-* Streamlit frontend (interactive UI)
+### 🔗 Project Resources
+* **Live Application:** [https://spam-detection-azien.streamlit.app](https://spam-detection-azien.streamlit.app)
+* **Backend API Documentation:** [https://spam-detection-api-cpzy.onrender.com/docs](https://spam-detection-api-cpzy.onrender.com/docs)
 
 ---
 
-## 📸 Demo
+## 📸 Interface Preview
 
-![Demo](assets/demo.png)
-
-
-
-## 🔴 Live Demo (Coming Soon)
-
-This project will be deployed soon with a public link.
+![Application Demo](assets/demo.png)
 
 ---
 
-## 🧠 Features
+## 🏗️ System Architecture
 
-* Real-time spam detection
-* Probability-based confidence score
-* Keyword-based risk analysis (Explainable AI)
-* Batch prediction support
-* Interactive UI
+The project is architected as a distributed web system, hosted across two cloud platforms to simulate a real-world production environment:
 
----
-
-## 🏗️ Tech Stack
-
-* Python
-* Scikit-learn
-* FastAPI
-* Streamlit
-* Joblib
+* **Inference Engine (Backend):** A RESTful API built with **FastAPI** and deployed on **Render**. It handles the core logic, text preprocessing, and serves a **Multinomial Naive Bayes** model.
+* **User Interface (Frontend):** A reactive web dashboard developed with **Streamlit** and deployed on **Streamlit Cloud**. It communicates with the backend via secure HTTP POST requests.
 
 ---
 
-## ⚙️ How It Works
+## 🧪 Tech Stack
 
-1. Input text is cleaned (lowercase + punctuation removal)
-2. Converted into numerical form using TF-IDF
-3. Logistic Regression predicts spam/ham
-4. API returns prediction + confidence + risk factors
-
----
-
-## ▶️ Run Locally
-
-### 1. Train Model
-
-```
-python train_model.py
-```
-
-### 2. Start Backend
-
-```
-uvicorn main:app --reload
-```
-
-### 3. Start Frontend
-
-```
-streamlit run ui.py
-```
+| Component | Technologies Used |
+| :--- | :--- |
+| **Machine Learning** | Python, Scikit-Learn, Pandas, Joblib |
+| **API Development** | FastAPI, Uvicorn, Pydantic |
+| **Web Interface** | Streamlit, Requests |
+| **Cloud & DevOps** | Render, Streamlit Cloud, Git/GitHub |
 
 ---
 
-## 📊 Example Output
+## ⚙️ Key Features
 
-* Prediction: Spam
-* Confidence: HIGH RISK
-* Spam Probability: 92%
-* Risk Factors: ["free", "win", "offer"]
-
----
-
-## 🎯 Purpose
-
-This project demonstrates:
-
-* ML model building
-* API development
-* Frontend integration
-* End-to-end deployment pipeline
+* **Real-time Classification:** High-speed inference providing immediate results upon user input.
+* **Probability-Based Confidence:** Displays the model's mathematical certainty for every prediction.
+* **Risk Analysis (Explainable AI):** Identifies and highlights specific keywords that triggered the spam classification.
+* **Asynchronous Communication:** The UI remains responsive while handling API requests and responses from the backend.
 
 ---
 
-## 📌 Future Improvements
+## 📊 Methodology & Pipeline
 
-* Deploy on cloud (Render / AWS)
-* Use advanced NLP models (BERT)
-* Add authentication system
-* Improve dataset quality
+1.  **Text Normalization:** Input data is converted to lowercase and cleared of non-alphanumeric noise to ensure consistency.
+2.  **Vectorization:** The system employs **TF-IDF (Term Frequency-Inverse Document Frequency)** to transform raw text into high-dimensional numerical vectors.
+3.  **Probabilistic Modeling:** A Naive Bayes classifier calculates the statistical likelihood of the "Spam" class based on trained word distributions.
+4.  **Data Exchange:** The API transmits structured JSON data containing the prediction, probability score, and risk factors back to the client interface.
+
+---
+
+## 🚀 Local Development
+
+### Prerequisites
+* Python 3.9 or higher
+* Git installed on your system
+
+### Installation & Setup
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/mdhukka/spam-detection-ml-system.git
+    ```
+2.  **Navigate to the project directory:**
+    ```bash
+    cd spam-detection-ml-system
+    ```
+3.  **Install the required dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### Execution
+1.  **Start the Backend API:**
+    ```bash
+    uvicorn main:app --reload
+    ```
+2.  **Start the Frontend UI (in a separate terminal):**
+    ```bash
+    streamlit run ui.py
+    ```
+
+---
+
+## 🛠️ Roadmap & Future Enhancements
+
+* [ ] Implement Transformer-based models (BERT/RoBERTa) for deeper semantic understanding.
+* [ ] Develop a persistent database layer to log prediction history and monitor model performance.
+* [ ] Integrate user-feedback loops to flag false positives for automated model retraining.
+
+---
+
+**Developed by Azien** | *Focused on building scalable, data-driven solutions.*
