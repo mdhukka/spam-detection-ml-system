@@ -6,7 +6,7 @@ from typing import List
 
 app = FastAPI()
 
-model = joblib.load("model/spam_model_v2.pkl")
+model = joblib.load("model/spam_model.pkl")
 
 SPAM_KEYWORDS = [
     "free","win","winner","prize","cash","claim","urgent","click",
