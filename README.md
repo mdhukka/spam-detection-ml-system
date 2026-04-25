@@ -1,23 +1,29 @@
-# 📩 Spam Detection System (ML + FastAPI + Streamlit)
+# 📩 Spam Detection ML System
 
 ## 🚀 Overview
 
-This project is a full-stack machine learning application that detects whether a message is spam or not.
+This is an end-to-end Machine Learning project that classifies messages as **Spam** or **Ham (Not Spam)**.
 
-It combines:
+It includes:
 
-* Machine Learning (TF-IDF + Logistic Regression)
-* FastAPI backend (for prediction API)
-* Streamlit frontend (for user interaction)
+* ML model (TF-IDF + Logistic Regression)
+* FastAPI backend (API for predictions)
+* Streamlit frontend (interactive UI)
+
+---
+
+## 🔴 Live Demo (Coming Soon)
+
+This project will be deployed soon with a public link.
 
 ---
 
 ## 🧠 Features
 
 * Real-time spam detection
-* Probability-based confidence scoring
-* Risk factor keyword detection
-* Batch message processing
+* Probability-based confidence score
+* Keyword-based risk analysis (Explainable AI)
+* Batch prediction support
 * Interactive UI
 
 ---
@@ -34,28 +40,28 @@ It combines:
 
 ## ⚙️ How It Works
 
-1. Text is preprocessed (lowercase + punctuation removal)
-2. Converted into numerical vectors using TF-IDF
+1. Input text is cleaned (lowercase + punctuation removal)
+2. Converted into numerical form using TF-IDF
 3. Logistic Regression predicts spam/ham
-4. API returns prediction with probabilities and explanations
+4. API returns prediction + confidence + risk factors
 
 ---
 
 ## ▶️ Run Locally
 
-### 1. Train model
+### 1. Train Model
 
 ```
 python train_model.py
 ```
 
-### 2. Start API
+### 2. Start Backend
 
 ```
 uvicorn main:app --reload
 ```
 
-### 3. Start UI
+### 3. Start Frontend
 
 ```
 streamlit run ui.py
@@ -74,17 +80,18 @@ streamlit run ui.py
 
 ## 🎯 Purpose
 
-Built as an end-to-end ML project to demonstrate:
+This project demonstrates:
 
-* Model building
+* ML model building
 * API development
 * Frontend integration
+* End-to-end deployment pipeline
 
 ---
 
 ## 📌 Future Improvements
 
 * Deploy on cloud (Render / AWS)
-* Use deep learning models (BERT)
-* Add user authentication
+* Use advanced NLP models (BERT)
+* Add authentication system
 * Improve dataset quality
