@@ -12,6 +12,12 @@ It includes:
 
 ---
 
+## 📸 Demo
+
+![Demo](assets/demo.png)
+
+
+
 ## 🔴 Live Demo (Coming Soon)
 
 This project will be deployed soon with a public link.
