@@ -1,0 +1,29 @@
+import streamlit as st
+import requests
+st.write("UI Loaded Successfully")
+st.title("📩 Spam Detection System")
+
+msg = st.text_area("Enter message")
+
+if st.button("Check"):
+    if msg.strip():
+        res = requests.post(
+            "http://127.0.0.1:8000/predict",
+            json={"message": msg}
+        )
+
+        if res.status_code == 200:
+            data = res.json()
+
+            st.subheader("Result")
+            st.write("Prediction:", data["prediction"])
+            st.write("Spam %:", data["spam_probability"])
+            st.write("Confidence:", data["confidence"])
+            st.write("Risk Words:", data["risk_factors"])
+
+            st.progress(data["spam_probability"]/100)
+
+        else:
+            st.error("API error")
+    else:
+        st.warning("Enter text")
