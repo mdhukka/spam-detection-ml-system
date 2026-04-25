@@ -8,7 +8,7 @@ msg = st.text_area("Enter message")
 if st.button("Check"):
     if msg.strip():
         res = requests.post(
-            "http://127.0.0.1:8000/predict",
+            "https://spam-detection-api-cpzy.onrender.com/predict",
             json={"message": msg}
         )
 
