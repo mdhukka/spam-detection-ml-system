@@ -13,7 +13,7 @@ SPAM_KEYWORDS = [
     "offer","limited","congratulations","selected","guaranteed",
     "discount","loan","credit","verify","account","suspend",
     "password","bank","earn","income","work from home",
-    "make money","dear friend"
+    "make money","dear friend","you won","lottery","click"
 ]
 
 class RequestModel(BaseModel):
@@ -31,6 +31,7 @@ def confidence_label(p):
     if p >= 80: return "HIGH RISK"
     elif p >= 50: return "MEDIUM RISK"
     elif p >= 30: return "LOW RISK"
+    elif p>= 20: return "MIGHT BE RISKY"
     else: return "SAFE"
 
 def risk_words(text):
